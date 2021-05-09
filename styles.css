@@ -9,24 +9,11 @@ input, select, button, option {
   color: red;
   background-color: black;
   font-size: 30px;
-  width: 180px;
+  width: 220px;
   text-align: center;
   border-style:solid;
   border-color: darkred;
   padding: 10px;
-}
-table, tr, td {
-  border-style: 1px;
-  border-spacing: 0px;
-  padding: 10px;
-}
-table {
-  border-collapse: separate;
-  border-spacing: 0 15px;
-}
-
-.weather {
-  font-size: 16px;
 }
 
 #title {
@@ -41,17 +28,6 @@ table {
     z-index: 1;
     width: 150px;
     height: 54px;
-}
-
-#chart_tide_descr {
-  font-size: 16px;
-}
-
-.result {
-  color: #ff0000;
-  text-align: center;
-  font-size: 40px;
-  font-weight: bold;
 }
 
 .tab {
