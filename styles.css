@@ -7,14 +7,14 @@ body {
 }
 
 .square_dark {
-  width: 12px;
+  width: 8px;
   height: 20px;
   background:darkgrey;
   display:inline-block;
 }
 
 .square_light {
-  width: 12px;
+  width: 8px;
   height: 20px;
   background:white;
   display:inline-block;
