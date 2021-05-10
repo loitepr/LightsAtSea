@@ -7,15 +7,15 @@ body {
 }
 
 .square_dark {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background:darkgrey;
   display:inline-block;
 }
 
 .square_light {
-  width: 10px;
-  height: 10px;
+  width: 12px;
+  height: 12px;
   background:white;
   display:inline-block;
 }
