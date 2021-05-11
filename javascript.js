@@ -182,20 +182,15 @@ function fISO(zISOS) {
 };
 
 function fCreateTable() {
-  //var zHtml = "<table style='border-style=0px; border-collapse: collapse;'><tr>";
   var zHtml = '';
 
   for (i = 0; i < zLightChar.length; i++) {
     if (zLightChar[i] == 1) {
-      //zHtml += "<td style='background-color:#ffffff;width:7px;height:7px'>&nbsp;</td>"}
       zHtml += '<div class="square_light"></div>'}
     else {
-      //zHtml += "<td style='background-color:#111111;width:7px;height:7px'>&nbsp;</td>"}
       zHtml += '<div class="square_dark"></div>'}
-
   };
 
-  //zHtml += "</tr></table>";
   document.getElementById("lightgrid").innerHTML = zHtml;
 };
 

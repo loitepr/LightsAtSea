@@ -20,6 +20,20 @@ body {
   display:inline-block;
 }
 
+.verticalline {
+  border-left: 1px solid red;
+  height: 100px;
+  position: absolute;
+  display: inline-block;
+  transform: translate(-50%, -150%);
+}
+
+.timestamp {
+  position: absolute;
+  display:inline;
+  transform: translate(-50%, -50%);
+}
+
 input, select, button, option {
   color: red;
   background-color: black;
