@@ -74,7 +74,7 @@ function fFlashing(zFlNo, zFlS) {
   fCreateTable();
 };
 
-function fQ(zFlNo, zFlS) {
+function fQ(zFlNo, zFlS, zLFlS) {
   zLightChar = [];
 
   for (i = 0; i < zFlNo; i++) {
@@ -89,6 +89,35 @@ function fQ(zFlNo, zFlS) {
     zFlS = zFlS-1;
   }
 
+  if (zLFlS == 1) {
+console.log("Long flash added");
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zLightChar.push(1);
+    zFlS = zFlS-3;
+  }
+
   for (i = 0; i < zFlS; i++) {
     zLightChar.push(0);
     zLightChar.push(0);
@@ -99,6 +128,8 @@ function fQ(zFlNo, zFlS) {
     zLightChar.push(0);
     zLightChar.push(0);
   }
+
+
 
   fCreateTable();
 };
@@ -190,6 +221,15 @@ function fCreateTable() {
     else {
       zHtml += '<div class="square_dark"></div>'}
   };
+  zHtml += "<br><br>"
+  
+  for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
+    zHtml += '<div class="verticalline" style="left: ' + Number((i*64)+8) + 'px"></div>';
+  }
+
+  for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
+    zHtml += '<div class="timestamp" style="left: ' + Number((i*64+8)+8) + 'px">' + i + '</div>';
+  }
 
   document.getElementById("lightgrid").innerHTML = zHtml;
 };

@@ -9,23 +9,23 @@ body {
 .square_dark {
   width: 8px;
   height: 20px;
-  background:darkgrey;
+  background: #111111;
   display:inline-block;
 }
 
 .square_light {
   width: 8px;
   height: 20px;
-  background:white;
+  background: #ffffff;
   display:inline-block;
 }
 
 .verticalline {
-  border-left: 1px solid red;
-  height: 100px;
+  border-left: 1px solid darkred;
+  height: 15px;
   position: absolute;
   display: inline-block;
-  transform: translate(-50%, -150%);
+  transform: translate(0%, -220%);
 }
 
 .timestamp {
