@@ -31,20 +31,44 @@ body {
 .verticalline {
   border-left: 1px solid darkred;
   height: 15px;
-  position: absolute;
+  position: relative;
   display: inline-block;
   transform: translate(0%, -220%);
 }
 
-.PointingArrow {
-  position: absolute;
-  font-size: 50px;
+.imageparent {
+  position: relative;
+  top: 0;
+  left: 0;
 }
 
+.lys {
+  position: absolute;
+  display: block;
+  top: -100px;
+  left: 305px;
+  z-index: 1;
+}
+
+.fyr {
+  position: relative;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.PointingArrow {
+  position: relative;
+  font-size: 50px;
+  transform: translate(-50%, 0%);
+}
+
+.test {
+  position: relative;
+}
 .timestamp {
   position: absolute;
-  display:inline;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, 0%);
 }
 
 input, select, button, option {
@@ -56,20 +80,6 @@ input, select, button, option {
   border-style:solid;
   border-color: darkred;
   padding: 10px;
-}
-
-#title {
-  font-size: 34px;
-  font-weight: bold;
-}
-
-#logo {
-    position: fixed;
-    top: 0px;
-    right: 0px;
-    z-index: 1;
-    width: 150px;
-    height: 54px;
 }
 
 .tab {

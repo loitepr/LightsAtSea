@@ -157,10 +157,8 @@ function fVQ(zFlNo, zFlS) {
     zLightChar.push(0);
     zFlS = zFlS-0.5
   }
-console.log("");
-console.log(zFlS);
+
   for (i = 0; i < zFlS*8; i++) {
-    console.log("sek lagt til");
     zLightChar.push(0);
   }
 
@@ -228,7 +226,7 @@ function fISO(zISOS) {
 };
 
 function fCreateTable() {
-  var zHtml = '';
+  var zHtml = '&nbsp;&nbsp;';
 
   for (i = 0; i < zLightChar.length; i++) {
     if (zLightChar[i] == 1) {
@@ -239,14 +237,17 @@ function fCreateTable() {
   zHtml += "<br><br>"
 
   for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
-    zHtml += '<div class="verticalline" style="left: ' + Number((i*64)+8) + 'px"></div>';
+    zHtml += '<div class="verticalline" style="left: ' + Number((i*63)+16) + 'px"></div>';
   }
 
+  zHtml += "<div class='test'>"
   for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
-    zHtml += '<div class="timestamp" style="left: ' + Number((i*64+8)+8) + 'px">' + i + '</div>';
+    zHtml += '<div class="timestamp" style="left: ' + Number((i*64)+16) + 'px">' + i + '</div>';
   }
 
+  zHtml += "</div>"
   document.getElementById("lightgrid").innerHTML = zHtml;
+  document.getElementById("PointingArrow").innerHTML ="&#8593";
 };
 
 function OpenTab(evt, cityName) {
@@ -268,7 +269,7 @@ function OpenTab(evt, cityName) {
 
 function fMovePointer(iDur) {
   const box = document.querySelector('.PointingArrow');
-  let position = 0;
+  let position = 10;
 
   function animate() {
     position += 1;
