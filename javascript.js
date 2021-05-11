@@ -99,7 +99,6 @@ function fQ(zFlNo, zFlS, zLFlS) {
   }
 
   if (zLFlS == 1) {
-console.log("Long flash added");
     zLightChar.push(1);
     zLightChar.push(1);
     zLightChar.push(1);
@@ -199,7 +198,6 @@ function fISO(zISOS) {
   fMovePointer(zISOS);
 
   for (i = 0; i <= zISOS/2; i++) {
-    console.log("tall "+zISOS/2+" i " + i);
     zLightChar.push(1);
     zLightChar.push(1);
     zLightChar.push(1);
@@ -237,12 +235,12 @@ function fCreateTable() {
   zHtml += "<br><br>"
 
   for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
-    zHtml += '<div class="verticalline" style="left: ' + Number((i*63)+16) + 'px"></div>';
+    zHtml += '<div class="verticalline" style="left: ' + Number((i*55)+16) + 'px"></div>';
   }
 
   zHtml += "<div class='test'>"
   for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
-    zHtml += '<div class="timestamp" style="left: ' + Number((i*64)+16) + 'px">' + i + '</div>';
+    zHtml += '<div class="timestamp" style="left: ' + Number((i*56)+14) + 'px">' + i + '</div>';
   }
 
   zHtml += "</div>"
@@ -273,12 +271,23 @@ function fMovePointer(iDur) {
 
   function animate() {
     position += 1;
-    if (position > Number(iDur*64)) {
+    if (position > Number(iDur*56)) {
       position = 0;
     };
     box.style.transform = `translateX(${ position }px)`;
+
     requestAnimationFrame(animate);
+
+    if(zLightChar[Math.floor(Number(position/7))] == 1) {
+      document.getElementById("lys").style.display = "block";
+    }
+    else {
+      document.getElementById("lys").style.display = "none";
+    }
   }
 
   animate();
-  };
+};
+
+OpenTab(event, 'tabFl')
+fFlashing(2,6);

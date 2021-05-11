@@ -7,7 +7,7 @@ body {
 }
 
 .square_dark {
-  width: 8px;
+  width: 7px;
   height: 20px;
   background: #111111;
   border-top-style: solid;
@@ -18,7 +18,7 @@ body {
 }
 
 .square_light {
-  width: 8px;
+  width: 7px;
   height: 20px;
   background: #ffffff;
   border-top-style: solid;
@@ -60,7 +60,7 @@ body {
 .PointingArrow {
   position: relative;
   font-size: 50px;
-  transform: translate(-50%, 0%);
+  top:-75px;
 }
 
 .test {
