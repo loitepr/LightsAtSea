@@ -3,6 +3,7 @@ var zId = null;
 
 function fOcculting(zOcNo, zOcS) {
   zLightChar = [];
+  fMovePointer(zOcS);
 
   for (i = 0; i < zOcNo; i++) {
     zLightChar.push(0);
@@ -79,6 +80,12 @@ function fFlashing(zFlNo, zFlS) {
 function fQ(zFlNo, zFlS, zLFlS) {
   zLightChar = [];
 
+  if (zFlS == 0) {
+    fMovePointer(1)}
+  else {
+    fMovePointer(zFlS)
+  };
+
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
     zLightChar.push(1);
@@ -131,30 +138,29 @@ console.log("Long flash added");
     zLightChar.push(0);
   }
 
-
-
   fCreateTable();
 };
 
 function fVQ(zFlNo, zFlS) {
   zLightChar = [];
 
+  if (zFlS == 0) {
+    fMovePointer(0.5)}
+  else {
+    fMovePointer(zFlS)
+  };
+
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
     zLightChar.push(1);
     zLightChar.push(0);
     zLightChar.push(0);
-    zFlS = zFlS-0.5;
+    zFlS = zFlS-0.5
   }
-
-  for (i = 0; i < zFlS; i++) {
-    zLightChar.push(0);
-    zLightChar.push(0);
-    zLightChar.push(0);
-    zLightChar.push(0);
-    zLightChar.push(0);
-    zLightChar.push(0);
-    zLightChar.push(0);
+console.log("");
+console.log(zFlS);
+  for (i = 0; i < zFlS*8; i++) {
+    console.log("sek lagt til");
     zLightChar.push(0);
   }
 
@@ -163,6 +169,12 @@ function fVQ(zFlNo, zFlS) {
 
 function fUQ(zFlNo, zFlS) {
   zLightChar = [];
+
+  if (zFlS == 0) {
+    fMovePointer(0.25)}
+  else {
+    fMovePointer(zFlS)
+  };
 
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
@@ -186,6 +198,7 @@ function fUQ(zFlNo, zFlS) {
 
 function fISO(zISOS) {
   zLightChar = [];
+  fMovePointer(zISOS);
 
   for (i = 0; i <= zISOS/2; i++) {
     console.log("tall "+zISOS/2+" i " + i);
