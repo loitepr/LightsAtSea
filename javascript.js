@@ -1,4 +1,5 @@
 var zLightChar = [];
+var zId = null;
 
 function fOcculting(zOcNo, zOcS) {
   zLightChar = [];
@@ -39,6 +40,7 @@ function fOcculting(zOcNo, zOcS) {
 
 function fFlashing(zFlNo, zFlS) {
   zLightChar = [];
+  fMovePointer(zFlS);
 
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
@@ -222,7 +224,7 @@ function fCreateTable() {
       zHtml += '<div class="square_dark"></div>'}
   };
   zHtml += "<br><br>"
-  
+
   for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
     zHtml += '<div class="verticalline" style="left: ' + Number((i*64)+8) + 'px"></div>';
   }
@@ -250,3 +252,19 @@ function OpenTab(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
+function fMovePointer(iDur) {
+  const box = document.querySelector('.PointingArrow');
+  let position = 0;
+
+  function animate() {
+    position += 1;
+    if (position > Number(iDur*64)) {
+      position = 0;
+    };
+    box.style.transform = `translateX(${ position }px)`;
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+  };
