@@ -251,6 +251,10 @@ function fCreateTable() {
 function OpenTab(evt, cityName) {
   var i, tabcontent, tablinks;
 
+  zLightChar = [];
+  document.getElementById("lightgrid").innerHTML = "";
+  document.getElementById("PointingArrow").innerHTML ="";
+
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
