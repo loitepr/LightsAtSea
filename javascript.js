@@ -36,12 +36,48 @@ function fOcculting(zOcNo, zOcS) {
     zLightChar.push(1);
   }
 
+  var zText;
+
+  switch(zOcNo) {
+  case 1:
+    zText = "Notasjon: FM";
+    break;
+  case 2:
+    zText = "Notasjon: FM2";
+    break;
+  case 3:
+    zText = "Notasjon: FM3";
+    break;
+  }
+
+  zText += '<p>Okkulterende lys har en lang periode med fast lys avbrutt av X antall mørkeperioder. '+
+  'Det er det mørke/okkulte vi teller. I RS sier vi "Fast med en", "Fast med to" osv., derav notasjonen FM.</p>';
+  document.getElementById("TextField").innerHTML = zText;
+
   fCreateTable();
 };
 
 function fFlashing(zFlNo, zFlS) {
   zLightChar = [];
   fMovePointer(zFlS);
+
+  var zText;
+
+  switch(zFlNo) {
+  case 1:
+    zText = "Notasjon: 1/" + zFlS;
+    break;
+  case 2:
+    zText = "Notasjon: 2/" + zFlS;
+    break;
+  case 3:
+    zText = "Notasjon: 3/" + zFlS;
+    break;
+  }
+
+  zText += '<p>Blinkende lys har en lang periode med mørke avbrutt av X antall relativt korte blink. '+
+  'Det er det antallet blink vi teller. I RS sier vi "En hvert tredje", "To hvert sjette" osv., derav notasjonen 1/3, 2/6 osv.</p>';
+  document.getElementById("TextField").innerHTML = zText;
 
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
@@ -79,6 +115,23 @@ function fFlashing(zFlNo, zFlS) {
 
 function fQ(zFlNo, zFlS, zLFlS) {
   zLightChar = [];
+
+  var zText;
+
+  if (zFlNo > 1 && zLFlS == 0) {
+    zText = "Notasjon: Q" + zFlNo + "/" + zFlS; }
+  else if (zLFlS == 1 && zFlNo > 1) {
+    zText = "Notasjon: Q" + zFlNo + " + LFl1/" + zFlS;
+  }
+  else {
+    zText = "Notasjon: Q";
+  }
+
+  zText += '<p>Hurtigblink har en lang periode med mørke avbrutt av X antall korte blink, typisk et halvt sekund. '+
+  'Det er antallet blink vi teller. I RS sier vi "Hurtigblink tre hvert tiende", "Hurtigblink ni hvert femtende" osv. '+
+  'Disse er typisk brukt på kardinalmerker.</p>';
+
+  document.getElementById("TextField").innerHTML = zText;
 
   if (zFlS == 0) {
     fMovePointer(1)}
@@ -149,6 +202,19 @@ function fVQ(zFlNo, zFlS) {
     fMovePointer(zFlS)
   };
 
+  var zText;
+
+  if (zFlNo > 1) {
+    zText = "Notasjon: VQ" + zFlNo + "/" + zFlS; }
+  else {
+    zText = "Notasjon: VQ";
+  }
+
+  zText += '<p>Rask hurtigblink har en lang periode med mørke avbrutt av X antall korte blink, typisk et kvart sekund. '+
+  'Det er antallet blink vi teller. I RS sier vi "Rask hurtigblink tre hvert femte", "Rask hurtigblink ni hvert tiende" osv. '+
+  'Disse er typisk brukt på kardinalmerker.</p>';
+  document.getElementById("TextField").innerHTML = zText;
+
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
     zLightChar.push(1);
@@ -173,6 +239,19 @@ function fUQ(zFlNo, zFlS) {
     fMovePointer(zFlS)
   };
 
+  var zText;
+
+  switch(zFlNo) {
+  case 1:
+    zText = "Notasjon: UQ";
+    break;
+  }
+
+  zText += '<p>Ultra hurtigblink blinker konstant, typisk et åttendedels sekund pr. blink. '+
+  'Disse blinker for raskt til å telles, så det vil alltid være kontinuerlig blinking på disse.</p>'
+
+  document.getElementById("TextField").innerHTML = zText;
+
   for (i = 0; i < zFlNo; i++) {
     zLightChar.push(1);
     zLightChar.push(0);
@@ -196,6 +275,12 @@ function fUQ(zFlNo, zFlS) {
 function fISO(zISOS) {
   zLightChar = [];
   fMovePointer(zISOS);
+
+  var zText = "Notasjon: ISO" + zISOS;
+
+  zText += '<p>Isofase lys har like lang lys og mørk periode.'+
+  'Det er den totale tiden vi måler, så en ISO' + zISOS + ' vil være mørk ' +  Number(zISOS/2) + ' sek. og lys ' + Number(zISOS/2) + ' sek.</p>';
+  document.getElementById("TextField").innerHTML = zText;
 
   for (i = 0; i <= zISOS/2; i++) {
     zLightChar.push(1);
@@ -254,6 +339,7 @@ function OpenTab(evt, cityName) {
   zLightChar = [];
   document.getElementById("lightgrid").innerHTML = "";
   document.getElementById("PointingArrow").innerHTML ="";
+  document.getElementById("TextField").innerHTML = "";
 
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
