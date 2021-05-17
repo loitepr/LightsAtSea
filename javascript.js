@@ -379,5 +379,5 @@ function fMovePointer(iDur) {
   animate();
 };
 
-OpenTab(event, 'tabFl')
-fFlashing(2,6);
+//OpenTab(event, 'tabFl')
+//fFlashing(2,6);

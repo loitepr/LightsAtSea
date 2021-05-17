@@ -66,6 +66,7 @@ body {
 .test {
   position: relative;
 }
+
 .timestamp {
   position: absolute;
   transform: translate(-50%, 0%);
@@ -85,6 +86,7 @@ input, select, button, option {
 .tab {
   overflow: hidden;
   border: 0px;
+  background-color: #000000;
 }
 
 .tab button {
@@ -108,13 +110,13 @@ input, select, button, option {
 }
 
 .tabcontent {
+  background-color: #000000;
   display: none;
   padding: 6px 12px;
   border: 0px;
   border-top: none;
   text-align: center;
   height: 200px;
-  animation: fadeEffect 1s;
 }
 
 #defaultSelected {
