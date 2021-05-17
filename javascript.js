@@ -1,5 +1,6 @@
 var zLightChar = [];
 var zId = null;
+var zTestActive = false;
 
 function fOcculting(zOcNo, zOcS) {
   zLightChar = [];
@@ -308,32 +309,122 @@ function fISO(zISOS) {
   fCreateTable();
 };
 
+function fRandom() {
+  zTestActive = true;
+  var test = Math.floor(Math.random() * 18);
+  console.log(test);
+
+  switch (test) {
+    case 0:
+      fQ(1,0);
+      document.getElementById("TextField").innerHTML = "Q";
+      break;
+    case 1:
+      fISO(2);
+      document.getElementById("TextField").innerHTML = "ISO2 eller ISO 2s";
+      break;
+    case 2:
+      fISO(4);
+      document.getElementById("TextField").innerHTML = "ISO4 eller ISO 4s";
+      break;
+    case 3:
+      fISO(6);
+      document.getElementById("TextField").innerHTML = "ISO6 eller ISO 6s";
+      break;
+    case 4:
+      fOcculting(1,3);
+      document.getElementById("TextField").innerHTML = "FM1 eller Oc 3s";
+      break;
+    case 5:
+      fOcculting(2,6);
+      document.getElementById("TextField").innerHTML = "FM2 eller Oc(2) 6s";
+      break;
+    case 6:
+      fOcculting(3,9);
+      document.getElementById("TextField").innerHTML = "FM3 eller Oc(3) 9s";
+      break;
+    case 7:
+      fFlashing(1,3);
+      document.getElementById("TextField").innerHTML = "1/3 eller Fl 3s";
+      break;
+    case 8:
+      fFlashing(1,5);
+      document.getElementById("TextField").innerHTML = "1/5 eller Fl 5s";
+      break;
+    case 9:
+      fFlashing(2,6);
+      document.getElementById("TextField").innerHTML = "2/6 eller Fl(2) 6s";
+      break;
+    case 10:
+      fFlashing(3,8);
+      document.getElementById("TextField").innerHTML = "3/8 eller Fl(3) 8s";
+      break;
+    case 11:
+      fQ(3,10,0);
+      document.getElementById("TextField").innerHTML = "Q3/10 eller Q(3) 10s";
+      break;
+    case 12:
+      fQ(9,15,0);
+      document.getElementById("TextField").innerHTML = "Q9/15 eller Q(9) 15s";
+      break;
+    case 13:
+      fVQ(1,0);
+      document.getElementById("TextField").innerHTML = "VQ";
+      break;
+    case 14:
+      fVQ(3,10);
+      document.getElementById("TextField").innerHTML = "VQ3/5 eller VQ(3) 5s";
+      break;
+    case 15:
+      fVQ(9,15);
+      document.getElementById("TextField").innerHTML = "VQ9/10 eller VQ(9) 10s";
+      break;
+    case 16:
+      fUQ(1,10);
+      document.getElementById("TextField").innerHTML = "UQ";
+      break;
+    case 17:
+      fQ(6,15,1);
+      document.getElementById("TextField").innerHTML = "Q6+LFl/10 eller Q(6) + LFl 10s";
+      break;
+  }
+}
+
 function fCreateTable() {
-  var zHtml = '&nbsp;&nbsp;';
+  if (zTestActive == false) {
+    var zHtml = '&nbsp;&nbsp;';
 
-  for (i = 0; i < zLightChar.length; i++) {
-    if (zLightChar[i] == 1) {
-      zHtml += '<div class="square_light"></div>'}
-    else {
-      zHtml += '<div class="square_dark"></div>'}
+    for (i = 0; i < zLightChar.length; i++) {
+      if (zLightChar[i] == 1) {
+        zHtml += '<div class="square_light"></div>'}
+      else {
+        zHtml += '<div class="square_dark"></div>'}
+    };
+    zHtml += "<br><br>"
+
+    for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
+      zHtml += '<div class="verticalline" style="left: ' + Number((i*55)+16) + 'px"></div>';
+    }
+
+    zHtml += "<div class='test'>"
+    for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
+      zHtml += '<div class="timestamp" style="left: ' + Number((i*56)+14) + 'px">' + i + '</div>';
+    }
+
+    zHtml += "</div>"
+    document.getElementById("lightgrid").innerHTML = zHtml;
+    document.getElementById("PointingArrow").innerHTML ="&#8593";
   };
-  zHtml += "<br><br>"
-
-  for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
-    zHtml += '<div class="verticalline" style="left: ' + Number((i*55)+16) + 'px"></div>';
-  }
-
-  zHtml += "<div class='test'>"
-  for (i = 0; i <= Math.ceil(zLightChar.length/8); i++) {
-    zHtml += '<div class="timestamp" style="left: ' + Number((i*56)+14) + 'px">' + i + '</div>';
-  }
-
-  zHtml += "</div>"
-  document.getElementById("lightgrid").innerHTML = zHtml;
-  document.getElementById("PointingArrow").innerHTML ="&#8593";
 };
 
 function OpenTab(evt, cityName) {
+  if (cityName == "tabTest") {
+    zTestActive = true;
+  }
+  else {
+    zTestActive = false;
+  };
+
   var i, tabcontent, tablinks;
 
   zLightChar = [];

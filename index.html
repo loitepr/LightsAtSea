@@ -6,13 +6,14 @@
 </head>
 	<body>
 		<div class="tab">
-			<button class="tablinks" onclick="OpenTab(event, 'tabOc')" id="defaultSelected">Oc</button>
-			<button class="tablinks" onclick="OpenTab(event, 'tabISO')">ISO</button>
-			<button class="tablinks" onclick="OpenTab(event, 'tabFl')">Fl</button>
-			<button class="tablinks" onclick="OpenTab(event, 'tabQ')">Q</button>
-			<button class="tablinks" onclick="OpenTab(event, 'tabVQ')">VQ</button>
-			<button class="tablinks" onclick="OpenTab(event, 'tabUQ')">UQ</button>
-			<button class="tablinks" onclick="OpenTab(event, 'tabKardinal')">Kardinal</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabOc')">&nbsp;Oc&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabISO')">&nbsp;ISO&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabFl')">&nbsp;Fl&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabQ')">&nbsp;Q&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabVQ')">&nbsp;VQ&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabUQ')">&nbsp;UQ&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabKardinal')">&nbsp;Kardinal&nbsp;</button>
+			<button class="tablinks" onclick="OpenTab(event, 'tabTest');fRandom()">&nbsp;Test&nbsp;</button>
 		</div>
 
 		<div id="tabFl" class="tabcontent">
@@ -25,9 +26,9 @@
 
 		<div id="tabQ" class="tabcontent">
 				<h3>Hurtigblink</h3>
-				<button onclick="fQ(1,0)">Q</button>
-				<button onclick="fQ(3,10)">Q(3) 10s</button>
-				<button onclick="fQ(9,15)">Q(9) 15s</button>
+				<button onclick="fQ(1,0,0)">Q</button>
+				<button onclick="fQ(3,10,0)">Q(3) 10s</button>
+				<button onclick="fQ(9,15,0)">Q(9) 15s</button>
 		</div>
 
 		<div id="tabVQ" class="tabcontent">
@@ -62,6 +63,11 @@
 				<button onclick="fQ(3,10,0)">Øst<br>Q(3) 10s</button>
 				<button onclick="fQ(6,15,1)">Syd<br>Q(6) + LFl 15s</button>
 				<button onclick="fQ(9,15,0)">Vest<br>Q(9) 15s</button>
+		</div>
+
+		<div id="tabTest" class="tabcontent">
+				<h3>Trykk "ny" for å se en tilfeldig lyskarakteristikk</h3>
+				<button onclick="fRandom()">Ny</button>
 		</div>
 
 		<table border="0" align="center">
