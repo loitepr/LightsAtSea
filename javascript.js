@@ -373,14 +373,14 @@ function fRandom() {
       break;
     case 14:
       fVQ(3,10);
-      document.getElementById("TextField").innerHTML = "VQ3/5 eller VQ(3) 5s";
+      document.getElementById("TextField").innerHTML = "VQ3/10 eller VQ(3) 10s";
       break;
     case 15:
       fVQ(9,15);
-      document.getElementById("TextField").innerHTML = "VQ9/10 eller VQ(9) 10s";
+      document.getElementById("TextField").innerHTML = "VQ9/15 eller VQ(9) 15s";
       break;
     case 16:
-      fUQ(1,10);
+      fUQ(1,0);
       document.getElementById("TextField").innerHTML = "UQ";
       break;
     case 17:
